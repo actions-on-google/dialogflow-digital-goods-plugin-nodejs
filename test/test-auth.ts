@@ -21,7 +21,7 @@ import {getAccessToken} from './../src/auth'
 import test from 'ava'
 import * as sinon from 'sinon'
 
-test.beforeEach(t => {
+test.afterEach(t => {
   if (auth.fromJSON.restore) {
     auth.fromJSON.restore()
   }
