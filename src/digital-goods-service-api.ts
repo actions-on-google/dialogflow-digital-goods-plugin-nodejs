@@ -17,6 +17,7 @@
 // Note: using isomorphic-fetch because it simplifies testing due to fetch-mock
 // having an easier setup. Reference: http://www.wheresrhys.co.uk/fetch-mock/#usageglobal-non-global
 require('isomorphic-fetch')
+import { SkuDetails } from './digital-goods-plugin'
 
 const endpoints = {
   get_skus: (packageName: string) => {
@@ -36,10 +37,7 @@ const endpoints = {
  * @return {Object<string, SKU>} array of SKUs -- instead object of SKUs
  */
 async function getSkus(conversationId: string, accessToken: string, packageName: string,
-  skuDetails: {
-    'SKU_TYPE_IN_APP'?: string[],
-    'SKU_TYPE_SUBSCRIPTION'?: string[],
-  }): Promise<{ [s: string]: object; }> {
+  skuDetails: SkuDetails): Promise<{ [s: string]: object; }> {
   const skus = {}
   // eslint-disable-next-line
   for (const skuType in skuDetails) {
