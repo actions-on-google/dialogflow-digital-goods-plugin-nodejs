@@ -1,5 +1,5 @@
 {
-  "name": "digital-goods-plugin-nodejs",
+  "name": "actions-on-google-digital-goods-plugin-nodejs",
   "version": "1.0.0",
   "description": "Plugin to simplify the programming with Digital Goods API for the Actions on Google client library.",
   "main": "dist/src/index.js",

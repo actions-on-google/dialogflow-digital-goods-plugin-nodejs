@@ -1,3 +1,19 @@
+/**
+ * Copyright 2019 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import ava, { TestInterface } from 'ava'
 import {DialogflowConversation} from 'actions-on-google'
 import {
@@ -155,4 +171,38 @@ test.serial(`Test that plugin extracts correct payment metadata from the conv.us
       .find(ent => ent.sku === 'premium').inAppDetails!.inAppPurchaseData!.purchaseToken,
   )
   t.is(t.context.conv.data.skus, undefined)
+})
+
+test.serial(`Test that plugin correctly purchases sku`, async t => {
+  const plugin = new DigitalGoodsPlugin(t.context.options, t.context.conv)
+  await plugin.getSkus()
+  plugin.purchaseSku('id0')
+  // tslint:disable-next-line
+  const serializedConv = plugin.conv.serialize() as any
+  t.deepEqual(serializedConv.payload.google.systemIntent, {
+    intent: 'actions.intent.COMPLETE_PURCHASE',
+    data: {
+      '@type': 'type.googleapis.com/google.actions.transactions.v3.CompletePurchaseValueSpec',
+      skuId: t.context.expectedSkus['id0'],
+    },
+  })
+})
+
+test.serial(`Test that plugin correctly stores lastPurchasedSkuId`, async t => {
+  const plugin = new DigitalGoodsPlugin(t.context.options, t.context.conv)
+  await plugin.getSkus()
+  plugin.purchaseSku('id0')
+  t.is(plugin.conv.data.lastPurchasedSkuId, 'id0')
+  const canConsume = plugin.canConsumeSku()
+  t.false(canConsume)
+  t.is(plugin.conv.data.lastPurchasedSkuId, 'id0')
+  plugin.consumeSku()
+  t.pass()
+})
+
+test.serial(`Test that plugin throws an error if empty args passed to
+ consume and no lastPurchasedSkuId is set`, async t => {
+  const plugin = new DigitalGoodsPlugin(t.context.options, t.context.conv)
+  t.throws(plugin.canConsumeSku)
+  await t.throwsAsync(plugin.consumeSku)
 })
