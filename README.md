@@ -48,8 +48,8 @@ app.intent('describe purchase status', async conv => {
     // look up in conv.data.purchasedItemSkuId, which is automatically set
     // if using conv.purchaseSku method. Otherwise, you will need to supply
     // the sku id yourself.
-    if (conv.digitalGoods.canConsume()) {
-      await conv.digitalGoods.consume()
+    if (conv.digitalGoods.canConsumeSku()) {
+      await conv.digitalGoods.consumeSku()
     }
   }
   // check other statuses

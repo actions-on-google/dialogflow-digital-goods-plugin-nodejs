@@ -183,7 +183,7 @@ test.serial(`Test that plugin correctly purchases sku`, async t => {
     intent: 'actions.intent.COMPLETE_PURCHASE',
     data: {
       '@type': 'type.googleapis.com/google.actions.transactions.v3.CompletePurchaseValueSpec',
-      skuId: t.context.expectedSkus['id0'],
+      skuId: t.context.expectedSkus['id0'].skuId,
     },
   })
 })

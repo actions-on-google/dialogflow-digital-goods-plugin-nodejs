@@ -143,7 +143,7 @@ export class DigitalGoodsPlugin {
       this.conv.data.lastPurchasedSkuId = skuId
     }
     this.conv.ask(new CompletePurchase({
-      skuId: this.conv.data.skus[skuId],
+      skuId: this.conv.data.skus[skuId].skuId,
     }))
   }
   // Private
