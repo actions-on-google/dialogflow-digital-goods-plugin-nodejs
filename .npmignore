@@ -1,0 +1,6 @@
+test/
+CONTRIBUTING.md
+*.log
+*.tgz
+*.DS_Store
+package-lock.json
