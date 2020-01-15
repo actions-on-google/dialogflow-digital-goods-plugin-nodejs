@@ -6,7 +6,7 @@ it simple to check for available SKUs and consume them if needed.
 
 Currently, plugin supports only Actions built with Dialogflow.
 
-[![NPM Version](https://img.shields.io/npm/v/actions-on-google.svg)](https://www.npmjs.org/package/actions-on-google-digital-goods-plugin-nodejs)
+[![NPM Version](https://img.shields.io/npm/v/actions-on-google-digital-goods-plugin-nodejs.svg)](https://www.npmjs.org/package/actions-on-google-digital-goods-plugin-nodejs)
 
 ## Setup Instructions
 
