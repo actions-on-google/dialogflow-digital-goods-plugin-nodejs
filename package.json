@@ -1,6 +1,6 @@
 {
   "name": "actions-on-google-digital-goods-plugin-nodejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Plugin to simplify the programming with Digital Goods API for the Actions on Google client library.",
   "main": "dist/src/index.js",
   "scripts": {
@@ -17,10 +17,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@types/node-fetch": "^2.5.0",
-    "actions-on-google": "^2.10.0",
     "firebase-admin": "^8.3.0",
     "google-auth-library": "^5.2.0",
     "isomorphic-fetch": "^2.2.1"
+  },
+  "peerDependencies": {
+    "actions-on-google": "^2.10.0"
   },
   "devDependencies": {
     "@types/fetch-mock": "^7.3.1",
