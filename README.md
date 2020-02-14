@@ -6,7 +6,7 @@ it simple to check for available SKUs and consume them if needed.
 
 Currently, plugin supports only Actions built with Dialogflow.
 
-[![NPM Version](https://img.shields.io/npm/v/actions-on-google.svg)](https://www.npmjs.org/package/actions-on-google-digital-goods-plugin-nodejs)
+[![NPM Version](https://img.shields.io/npm/v/actions-on-google-digital-goods-plugin-nodejs.svg)](https://www.npmjs.org/package/actions-on-google-digital-goods-plugin-nodejs)
 
 ## Setup Instructions
 
@@ -57,9 +57,9 @@ app.intent('describe purchase status', async conv => {
 ```
 
 ## References & Issues
-+ Questions? Go to [StackOverflow](https://stackoverflow.com/questions/tagged/actions-on-google), [Assistant Developer Community on Reddit](https://www.reddit.com/r/GoogleAssistantDev/) or [Support](https://developers.google.com/actions/support/).
++ Questions? Go to [StackOverflow](https://stackoverflow.com/questions/tagged/actions-on-google), [Assistant Developer Community on Reddit](https://www.reddit.com/r/GoogleAssistantDev/) or [Support](https://developers.google.com/assistant/support).
 + For bugs, please report an issue on Github.
-+ Actions on Google [Documentation](https://developers.google.com/actions/extending-the-assistant)
++ Actions on Google [Documentation](https://developers.google.com/assistant)
 + Actions on Google [Codelabs](https://codelabs.developers.google.com/?cat=Assistant).
 
 ## Make Contributions
